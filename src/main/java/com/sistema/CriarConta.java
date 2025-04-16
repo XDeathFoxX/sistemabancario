@@ -9,12 +9,12 @@ public class CriarConta implements ContaPf {
     private float saldoConta;
 
     public CriarConta() {
-        this.numConta = 0;
-        this.nomeConta = "";
-        this.senhaConta = "";
-        this.cpfConta = "";
+        this.numConta = 001;
+        this.nomeConta = "Jubileu";
+        this.senhaConta = "apsdw";
+        this.cpfConta = "22808508000";
         this.cnpjConta = "";
-        this.saldoConta = 0;
+        this.saldoConta = 100;
     }
 
     public float getSaldoConta() {
@@ -67,7 +67,7 @@ public class CriarConta implements ContaPf {
 
     @Override
     public void verificarSaldo() {
-        
+        System.out.printf("O saldo atual da sua conta é R$ %.2f %n" , this.getSaldoConta());
     }
 
     @Override
