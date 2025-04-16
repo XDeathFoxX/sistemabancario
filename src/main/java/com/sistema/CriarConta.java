@@ -1,4 +1,5 @@
 package com.sistema;
+import java.util.Scanner;
 
 public class CriarConta implements ContaPf {
     private int numConta;
@@ -7,6 +8,9 @@ public class CriarConta implements ContaPf {
     private String cpfConta;
     private String cnpjConta;
     private float saldoConta;
+    private float valorSaque;
+    
+    Scanner input = new Scanner(System.in);
 
     public CriarConta() {
         this.numConta = 001;
@@ -15,6 +19,7 @@ public class CriarConta implements ContaPf {
         this.cpfConta = "22808508000";
         this.cnpjConta = "";
         this.saldoConta = 100;
+        this.valorSaque = 0;
     }
 
     public float getSaldoConta() {
@@ -72,6 +77,7 @@ public class CriarConta implements ContaPf {
 
     @Override
     public void sacarSaldo() {
+        System.out.println("Qual valor deseja sacar da sua conta?");
         
     }
 
