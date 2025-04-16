@@ -8,6 +8,9 @@ public class App {
         Scanner userinput = new Scanner(System.in);
         c.verificarSaldo();
         c.sacarSaldo();
-        
+        c.setValorSaque(userinput.nextFloat());
+        c.sacandoSaldo();
+
+        userinput.close();
     }
 }

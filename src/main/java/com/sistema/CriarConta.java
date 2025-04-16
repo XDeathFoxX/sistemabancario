@@ -8,7 +8,7 @@ public class CriarConta implements ContaPf {
     private String cpfConta;
     private String cnpjConta;
     private float saldoConta;
-    private float valorSaque;
+    public  float valorSaque;
     
     Scanner input = new Scanner(System.in);
 
@@ -20,6 +20,14 @@ public class CriarConta implements ContaPf {
         this.cnpjConta = "";
         this.saldoConta = 100;
         this.valorSaque = 0;
+    }
+
+    public float getValorSaque() {
+        return valorSaque;
+    }
+
+    public void setValorSaque(float valorSaque) {
+        this.valorSaque = valorSaque;
     }
 
     public float getSaldoConta() {
@@ -88,6 +96,17 @@ public class CriarConta implements ContaPf {
 
     @Override
     public void depositarDinheiro() {
+        
+    }
+
+    @Override
+    public void sacandoSaldo() {
+        if (valorSaque > saldoConta){
+            System.out.println("Não é possível realizar o saque, valor acima do saldo disponível");
+        }else{
+            setSaldoConta(saldoConta - valorSaque);
+            verificarSaldo();
+        }
         
     }
 
