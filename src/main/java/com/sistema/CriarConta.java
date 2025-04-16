@@ -1,5 +1,4 @@
 package com.sistema;
-import java.util.Scanner;
 
 public class CriarConta implements ContaPf {
     private int numConta;
@@ -9,8 +8,8 @@ public class CriarConta implements ContaPf {
     private String cnpjConta;
     private float saldoConta;
     public  float valorSaque;
-    
-    Scanner input = new Scanner(System.in);
+    public float valorDeposito;
+
 
     public CriarConta() {
         this.numConta = 001;
@@ -20,6 +19,15 @@ public class CriarConta implements ContaPf {
         this.cnpjConta = "";
         this.saldoConta = 100;
         this.valorSaque = 0;
+        this.valorDeposito = 0;
+    }
+
+    public float getValorDeposito() {
+        return valorDeposito;
+    }
+
+    public void setValorDeposito(float valorDeposito) {
+        this.valorDeposito = valorDeposito;
     }
 
     public float getValorSaque() {
@@ -86,7 +94,6 @@ public class CriarConta implements ContaPf {
     @Override
     public void sacarSaldo() {
         System.out.println("Qual valor deseja sacar da sua conta?");
-        
     }
 
     @Override
@@ -96,7 +103,7 @@ public class CriarConta implements ContaPf {
 
     @Override
     public void depositarDinheiro() {
-        
+        System.out.println("Qual valor deseja depositar em sua conta?");    
     }
 
     @Override
@@ -105,13 +112,21 @@ public class CriarConta implements ContaPf {
             System.out.println("Não é possível realizar o saque, valor acima do saldo disponível");
         }else{
             setSaldoConta(saldoConta - valorSaque);
+            System.out.println("Saque efetuado com sucesso!");
             verificarSaldo();
         }
         
     }
 
-    
+    @Override
+    public void depositandoDinheiro() {
+        if (valorDeposito < 0){
+            System.out.println("Não é possível realizar o depósito, valor negativo");
+        }else{
+            setSaldoConta(saldoConta + valorDeposito);
+            System.out.println("Depósito efetuado com sucesso!");
+            verificarSaldo();
+        }
+    }
 
-
-    
 }

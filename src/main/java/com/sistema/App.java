@@ -7,10 +7,10 @@ public class App {
         CriarConta c = new CriarConta();
         Scanner userinput = new Scanner(System.in);
         c.verificarSaldo();
-        c.sacarSaldo();
-        c.setValorSaque(userinput.nextFloat());
-        c.sacandoSaldo();
-
+        c.depositarDinheiro();
+        c.setValorDeposito(userinput.nextFloat());
+        c.depositandoDinheiro();
+        
         userinput.close();
     }
 }

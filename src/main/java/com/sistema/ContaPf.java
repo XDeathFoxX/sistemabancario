@@ -6,4 +6,5 @@ public interface ContaPf {
     public void transferirSaldo();
     public void depositarDinheiro();
     public void sacandoSaldo();
+    public void depositandoDinheiro();
 }
