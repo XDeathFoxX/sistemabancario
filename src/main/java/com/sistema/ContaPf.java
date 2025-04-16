@@ -7,4 +7,5 @@ public interface ContaPf {
     public void depositarDinheiro();
     public void sacandoSaldo();
     public void depositandoDinheiro();
+    public void dadosConta();
 }

@@ -10,7 +10,7 @@ public class App {
         c.depositarDinheiro();
         c.setValorDeposito(userinput.nextFloat());
         c.depositandoDinheiro();
-        
+        c.dadosConta();
         userinput.close();
     }
 }

@@ -129,4 +129,10 @@ public class CriarConta implements ContaPf {
         }
     }
 
+    @Override
+    public void dadosConta() {
+        System.out.println("Nome da conta : " + getNomeConta());
+        System.out.println("Número da conta : " + getNumConta());
+    }
+
 }
