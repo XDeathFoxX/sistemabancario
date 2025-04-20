@@ -1,6 +1,8 @@
 package com.sistema;
 
-public class CriarConta implements ContaPf {
+import java.util.Scanner;
+
+public class CriarConta extends App implements ContaPf {
     private int numConta;
     private String nomeConta;
     private String senhaConta;
@@ -9,6 +11,9 @@ public class CriarConta implements ContaPf {
     private float saldoConta;
     public  float valorSaque;
     public float valorDeposito;
+    public int opcao;
+
+    Scanner userinput = new Scanner(System.in);
 
 
     public CriarConta() {
@@ -20,6 +25,15 @@ public class CriarConta implements ContaPf {
         this.saldoConta = 100;
         this.valorSaque = 0;
         this.valorDeposito = 0;
+        this.opcao = 0;
+    }
+
+    public int getOpcao() {
+        return opcao;
+    }
+
+    public void setOpcao(int opcao) {
+        this.opcao = opcao;
     }
 
     public float getValorDeposito() {
@@ -89,6 +103,7 @@ public class CriarConta implements ContaPf {
     @Override
     public void verificarSaldo() {
         System.out.printf("O saldo atual da sua conta é R$ %.2f %n" , this.getSaldoConta());
+
     }
 
     @Override
@@ -134,5 +149,22 @@ public class CriarConta implements ContaPf {
         System.out.println("Nome da conta : " + getNomeConta());
         System.out.println("Número da conta : " + getNumConta());
     }
-
-}
+ 
+    public void menu() {
+        System.out.println("Digite a opção desejada:");
+        this.opcao = userinput.nextInt();
+        }
+    
+    public void opcoesmenu(){
+        switch (opcao) {
+            case 1:
+                dadosConta();
+                break;
+            case 2:
+                sacarSaldo();
+                this.valorSaque = userinput.nextInt();
+                sacandoSaldo();
+                break;
+    
+            }
+}}
