@@ -135,7 +135,7 @@ public class CriarConta extends App implements ContaPf {
 
     @Override
     public void depositandoDinheiro() {
-        if (valorDeposito < 0){
+        if(valorDeposito < 0){
             System.out.println("Não é possível realizar o depósito, valor negativo");
         }else{
             setSaldoConta(saldoConta + valorDeposito);
@@ -146,25 +146,100 @@ public class CriarConta extends App implements ContaPf {
 
     @Override
     public void dadosConta() {
-        System.out.println("Nome da conta : " + getNomeConta());
+        System.out.println("Nome da conta :" + getNomeConta());
         System.out.println("Número da conta : " + getNumConta());
     }
  
     public void menu() {
         System.out.println("Digite a opção desejada:");
+        System.out.println("");
+        System.out.println("1 - Dados da Conta ");
+        System.out.println("2 - Sacar Saldo");
+        System.out.println("3 - Depositar Dinheiro");
+        System.out.println("4 - Verificar Saldo");
         this.opcao = userinput.nextInt();
+        opcoesmenu();
         }
+
+    public void reset() {
+        this.opcao = userinput.nextInt();
+        switch(opcao){
+            case 1:
+                menu();
+                break;
+
+            case 2:
+                break;
+
+            default:
+                System.out.println("Opção inválida, tente novamente");
+                reset();
+                break;
+        }
+    }
     
     public void opcoesmenu(){
         switch (opcao) {
             case 1:
                 dadosConta();
+                System.out.println("");
+                System.out.println("Deseja sair do sistema ou retornar ao menu?");
+                System.out.println("1 - Menu");
+                System.out.println("2 - Sair");
+                System.out.println("");
+                reset();
                 break;
             case 2:
                 sacarSaldo();
                 this.valorSaque = userinput.nextInt();
                 sacandoSaldo();
+                System.out.println("");
+                System.out.println("Deseja sair do sistema ou retornar ao menu?");
+                System.out.println("1 - Menu");
+                System.out.println("2 - Sair");
+                System.out.println("");
+                this.opcao = userinput.nextInt();
+                switch(opcao){
+                    case 1:
+                    menu();
+                    break;
+                    case 2:
+                    break;
+                }
                 break;
-    
+            case 3:
+                depositarDinheiro();
+                this.valorDeposito = userinput.nextInt();
+                depositandoDinheiro();
+                System.out.println("");
+                System.out.println("Deseja sair do sistema ou retornar ao menu?");
+                System.out.println("1 - Menu");
+                System.out.println("2 - Sair");
+                System.out.println("");
+                this.opcao = userinput.nextInt();
+                switch(opcao){
+                    case 1:
+                    menu();
+                    break;
+                    case 2:
+                    break;
+                }
+                break;
+            case 4:
+                verificarSaldo();
+                System.out.println("");
+                System.out.println("Deseja sair do sistema ou retornar ao menu?");
+                System.out.println("1 - Menu");
+                System.out.println("2 - Sair");
+                System.out.println("");
+                this.opcao = userinput.nextInt();
+                switch(opcao){
+                    case 1:
+                    menu();
+                    break;
+                    case 2:
+                    break;
+                }
+                break;
             }
 }}
